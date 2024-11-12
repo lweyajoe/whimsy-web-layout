@@ -14,7 +14,7 @@ const Index = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden flex flex-col">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -26,7 +26,7 @@ const Index = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative min-h-screen flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
+      <div className="relative flex-grow flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
         {/* Left Side - Title */}
         <div className="text-cream mb-8 md:mb-0">
           <motion.h1 
@@ -72,6 +72,26 @@ const Index = () => {
           </nav>
         </motion.div>
       </div>
+
+      {/* Footer */}
+      <motion.footer 
+        className="relative bg-cream/95 text-brown py-6 px-8 mt-auto"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
+          <p className="mb-2 md:mb-0">© 2024 Loaf & Leaven Co. | Developed by John Smith</p>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+            <a href="mailto:contact@loafandleaven.com" className="hover:text-brown-light transition-colors">
+              contact@loafandleaven.com
+            </a>
+            <a href="tel:+1234567890" className="hover:text-brown-light transition-colors">
+              (123) 456-7890
+            </a>
+          </div>
+        </div>
+      </motion.footer>
     </div>
   );
 };
