@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const menuItems = [
   "Regular Menu",
@@ -27,8 +28,8 @@ const Index = () => {
 
       {/* Content Container */}
       <div className="relative flex-grow flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
-        {/* Left Side - Title */}
-        <div className="text-cream mb-8 md:mb-0">
+        {/* Left Side - Title and Auth */}
+        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start">
           <motion.h1 
             className="font-serif text-5xl md:text-7xl mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -38,13 +39,55 @@ const Index = () => {
             Loaf & Leaven Co.
           </motion.h1>
           <motion.p 
-            className="font-sans text-xl md:text-2xl tracking-wide"
+            className="font-sans text-xl md:text-2xl tracking-wide mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             SOURDOUGH BREAD, CHEESECAKES, AND MORE!
           </motion.p>
+
+          {/* Auth Buttons Section */}
+          <motion.div 
+            className="space-y-4 w-full max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            {/* Google Sign In Button */}
+            <button
+              className="w-full bg-white text-gray-700 px-6 py-3 rounded-lg font-sans text-lg flex items-center justify-center space-x-3 hover:bg-gray-100 transition-colors border border-gray-300"
+            >
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-6 h-6" />
+              <span>Sign in with Google</span>
+            </button>
+
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-cream/30"></span>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-transparent px-2 text-cream">Or continue with</span>
+              </div>
+            </div>
+
+            <Button
+              className="w-full bg-cream text-brown hover:bg-cream/90 px-6 py-6 text-lg font-medium"
+            >
+              Sign In
+            </Button>
+            
+            <Button
+              variant="outline"
+              className="w-full border-cream text-cream hover:bg-cream/10 px-6 py-6 text-lg font-medium"
+            >
+              Sign Up
+            </Button>
+
+            <button className="text-cream/80 hover:text-cream text-sm mt-2 transition-colors">
+              Forgot password?
+            </button>
+          </motion.div>
         </div>
 
         {/* Right Side - Menu */}
