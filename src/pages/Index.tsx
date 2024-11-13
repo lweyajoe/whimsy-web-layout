@@ -30,7 +30,7 @@ const Index = () => {
         {/* Left Side - Title */}
         <div className="text-cream mb-8 md:mb-0">
           <motion.h1 
-            className="font-serif text-4xl md:text-6xl mb-4"
+            className="font-serif text-5xl md:text-7xl mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -38,7 +38,7 @@ const Index = () => {
             Loaf & Leaven Co.
           </motion.h1>
           <motion.p 
-            className="font-sans text-lg md:text-xl tracking-wide"
+            className="font-sans text-xl md:text-2xl tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -49,17 +49,17 @@ const Index = () => {
 
         {/* Right Side - Menu */}
         <motion.div 
-          className="bg-cream/95 p-8 md:p-12 rounded-lg shadow-xl w-full md:w-[400px] h-[85vh] flex flex-col justify-center"
+          className="bg-cream/95 p-10 md:p-14 rounded-lg shadow-xl w-full md:w-[500px] h-[85vh] flex flex-col justify-center"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <nav className="space-y-4">
+          <nav className="space-y-6">
             {menuItems.map((item) => (
               <motion.button
                 key={item}
-                className={`w-full text-center py-3 px-6 border border-brown/20 rounded 
-                  font-sans text-lg transition-all duration-300
+                className={`w-full text-center py-4 px-8 border-2 border-brown/20 rounded-lg
+                  font-sans text-xl md:text-2xl transition-all duration-300
                   ${hoveredItem === item ? 'bg-brown text-cream' : 'bg-transparent text-brown hover:bg-brown/5'}`}
                 onHoverStart={() => setHoveredItem(item)}
                 onHoverEnd={() => setHoveredItem(null)}
