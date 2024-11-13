@@ -29,27 +29,29 @@ const Index = () => {
       {/* Content Container */}
       <div className="relative flex-grow flex flex-col md:flex-row items-start justify-between p-8 md:p-16">
         {/* Left Side - Title and Auth */}
-        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start mt-14">
-          <motion.h1 
-            className="font-serif text-5xl md:text-7xl mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            Loaf & Leaven Co.
-          </motion.h1>
-          <motion.p 
-            className="font-sans text-xl md:text-2xl tracking-wide mb-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            SOURDOUGH BREAD, CHEESECAKES, AND MORE!
-          </motion.p>
+        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start mt-14 h-full justify-between">
+          <div>
+            <motion.h1 
+              className="font-serif text-5xl md:text-7xl mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              Loaf & Leaven Co.
+            </motion.h1>
+            <motion.p 
+              className="font-sans text-xl md:text-2xl tracking-wide"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              SOURDOUGH BREAD, CHEESECAKES, AND MORE!
+            </motion.p>
+          </div>
 
           {/* Auth Buttons Section */}
           <motion.div 
-            className="space-y-4 w-full max-w-md"
+            className="space-y-4 w-full max-w-md mt-auto pt-32"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
