@@ -27,9 +27,9 @@ const Index = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative flex-grow flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
+      <div className="relative flex-grow flex flex-col md:flex-row items-start justify-between p-8 md:p-16">
         {/* Left Side - Title and Auth */}
-        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start">
+        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start mt-14">
           <motion.h1 
             className="font-serif text-5xl md:text-7xl mb-6"
             initial={{ opacity: 0, y: 20 }}
