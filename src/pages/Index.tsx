@@ -49,7 +49,7 @@ const Index = () => {
 
         {/* Right Side - Menu */}
         <motion.div 
-          className="bg-cream/95 p-8 md:p-12 rounded-lg shadow-xl w-full md:w-[400px]"
+          className="bg-cream/95 p-8 md:p-12 rounded-lg shadow-xl w-full md:w-[400px] h-[85vh] flex flex-col justify-center"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
