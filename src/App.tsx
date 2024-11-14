@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Index from "./pages/Index";
 import BuyLathVouchers from "./pages/buy-lath-vouchers";
+import GiftCards from "./pages/gift-cards";
+import MyEventsCalendar from "./pages/my-events-calendar";
+import HolidayPackages from "./pages/holiday-packages";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +23,9 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/buy-lath-vouchers" element={<BuyLathVouchers />} />
+            <Route path="/gift-cards" element={<GiftCards />} />
+            <Route path="/my-events-calendar" element={<MyEventsCalendar />} />
+            <Route path="/holiday-packages" element={<HolidayPackages />} />
           </Routes>
         </main>
       </BrowserRouter>
