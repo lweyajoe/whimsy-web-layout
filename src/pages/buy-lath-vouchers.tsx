@@ -60,6 +60,14 @@ const BuyLathVouchers = () => {
                 <CardTitle className="text-2xl font-serif">{voucher.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
+                <div className="relative w-full h-0 pt-[70.9459%] mb-4 overflow-hidden rounded-lg">
+                  <iframe
+                    loading="lazy"
+                    className="absolute w-full h-full top-0 left-0 border-none"
+                    src="https://www.canva.com/design/DAGWZCMF98E/uuE2TCVprTTV3-olnssH-Q/view?embed"
+                    allowFullScreen
+                  />
+                </div>
                 <p className="text-gray-600">{voucher.description}</p>
                 <p className="text-2xl font-semibold mt-4">${voucher.price}</p>
               </CardContent>
