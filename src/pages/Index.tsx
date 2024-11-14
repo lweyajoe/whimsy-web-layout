@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const menuItems = [
-  "Regular Menu",
-  "Weekly Specials",
-  "How to Order",
-  "About Us",
-  "Testimonials",
-  "Watch Us Bake"
+  "Buy Lath Vouchers",
+  "Gift Cards",
+  "My Events Calendar",
+  "Holiday Packages",
+  "My Gift Shop",
+  "Lath Newsletter"
 ];
 
 const Index = () => {
@@ -16,13 +16,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden flex flex-col">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')",
-        }}
-      >
+      {/* Video Background with Overlay */}
+      <div className="absolute inset-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute min-w-full min-h-full object-cover"
+        >
+          <source src="https://videos.pexels.com/video-files/9448994/9448994-uhd_2560_1440_30fps.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-brown/40"></div>
       </div>
 
@@ -37,7 +41,7 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Loaf & Leaven Co.
+              Live Abroad, Think Home
             </motion.h1>
             <motion.p 
               className="font-sans text-xl md:text-2xl tracking-wide"
@@ -45,7 +49,7 @@ const Index = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              SOURDOUGH BREAD, CHEESECAKES, AND MORE!
+              The app where you keep your loved ones thinking about you across borders
             </motion.p>
           </div>
 
@@ -56,7 +60,6 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            {/* Google Sign In Button */}
             <button
               className="w-full bg-white text-gray-700 px-6 py-3 rounded-lg font-sans text-lg flex items-center justify-center space-x-3 hover:bg-gray-100 transition-colors border border-gray-300"
             >
@@ -94,17 +97,18 @@ const Index = () => {
 
         {/* Right Side - Menu */}
         <motion.div 
-          className="bg-cream/95 p-10 md:p-14 rounded-lg shadow-xl w-full md:w-[500px] h-[85vh] flex flex-col justify-center"
+          className="bg-cream/95 p-10 md:p-14 rounded-lg shadow-xl w-full md:w-[600px] h-[85vh] flex flex-col justify-center"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
           <nav className="space-y-6">
             {menuItems.map((item) => (
-              <motion.button
+              <motion.a
+                href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 key={item}
-                className={`w-full text-center py-4 px-8 border-2 border-brown/20 rounded-lg
-                  font-sans text-xl md:text-2xl transition-all duration-300
+                className={`block w-full text-center py-6 px-10 border-2 border-brown/20 rounded-lg
+                  font-sans text-2xl md:text-3xl transition-all duration-300
                   ${hoveredItem === item ? 'bg-brown text-cream' : 'bg-transparent text-brown hover:bg-brown/5'}`}
                 onHoverStart={() => setHoveredItem(item)}
                 onHoverEnd={() => setHoveredItem(null)}
@@ -112,7 +116,7 @@ const Index = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 {item}
-              </motion.button>
+              </motion.a>
             ))}
           </nav>
         </motion.div>
@@ -126,10 +130,10 @@ const Index = () => {
         transition={{ delay: 0.6, duration: 0.8 }}
       >
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
-          <p className="mb-2 md:mb-0">© 2024 Loaf & Leaven Co. | Developed by John Smith</p>
+          <p className="mb-2 md:mb-0">© 2024 Live Abroad, Think Home | All rights reserved</p>
           <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            <a href="mailto:contact@loafandleaven.com" className="hover:text-brown-light transition-colors">
-              contact@loafandleaven.com
+            <a href="mailto:contact@lath.com" className="hover:text-brown-light transition-colors">
+              contact@lath.com
             </a>
             <a href="tel:+1234567890" className="hover:text-brown-light transition-colors">
               (123) 456-7890
