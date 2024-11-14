@@ -30,41 +30,13 @@ const Index = () => {
             Live Abroad, Think Home
           </motion.h1>
           <motion.p 
-            className="font-sans text-xl md:text-2xl tracking-wide mb-12"
+            className="font-sans text-xl md:text-2xl tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             The app where you keep your loved ones thinking about you across borders
           </motion.p>
-
-          {/* Experience Card */}
-          <motion.div
-            className="bg-cream/95 rounded-lg p-8 shadow-xl max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            <div className="flex flex-col items-center text-brown">
-              <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-brown">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-                  alt="Sarah Kamau"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-serif mb-2">Sarah Kamau</h3>
-              <p className="text-lg italic mb-4">"Finding Home Away From Home"</p>
-              <p className="text-gray-700 leading-relaxed">
-                Moving from Kenya to Adelaide for my masters was a huge step. While the opportunity was exciting, 
-                the distance from family was challenging. LATH has been a game-changer in keeping me connected 
-                with my loved ones back home. Through the app's thoughtful features, I can share my journey and 
-                ensure my presence is felt despite the physical distance. From sending surprise gift cards to 
-                organizing virtual family gatherings, LATH has made my experience in Adelaide feel more like 
-                an extension of home rather than a separation from it.
-              </p>
-            </div>
-          </motion.div>
         </div>
 
         {/* Right Side - Menu */}
@@ -98,6 +70,36 @@ const Index = () => {
           </nav>
         </motion.div>
       </div>
+
+      {/* Experience Card - Positioned at bottom */}
+      <motion.div
+        className="relative w-full max-w-2xl mx-auto mb-16 px-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <div className="bg-cream/95 rounded-lg p-8 shadow-xl">
+          <div className="flex flex-col items-center text-brown">
+            <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-brown">
+              <img
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+                alt="Sarah Kamau"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="text-2xl font-serif mb-2">Sarah Kamau</h3>
+            <p className="text-lg italic mb-4">"Finding Home Away From Home"</p>
+            <p className="text-gray-700 leading-relaxed">
+              Moving from Kenya to Adelaide for my masters was a huge step. While the opportunity was exciting, 
+              the distance from family was challenging. LATH has been a game-changer in keeping me connected 
+              with my loved ones back home. Through the app's thoughtful features, I can share my journey and 
+              ensure my presence is felt despite the physical distance. From sending surprise gift cards to 
+              organizing virtual family gatherings, LATH has made my experience in Adelaide feel more like 
+              an extension of home rather than a separation from it.
+            </p>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
