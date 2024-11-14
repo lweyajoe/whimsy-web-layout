@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Search } from "lucide-react";
 
 const categories = {
@@ -38,18 +39,21 @@ const GiftCards = () => {
       </div>
 
       <Tabs defaultValue="Personal Milestones" className="space-y-8">
-        <TabsList className="flex flex-wrap gap-2">
-          {Object.keys(categories).map((category) => (
-            <TabsTrigger
-              key={category}
-              value={category}
-              onClick={() => setActiveCategory(category)}
-              className="px-4 py-2"
-            >
-              {category}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+          <TabsList className="inline-flex h-10 items-center justify-start p-1">
+            {Object.keys(categories).map((category) => (
+              <TabsTrigger
+                key={category}
+                value={category}
+                onClick={() => setActiveCategory(category)}
+                className="px-4 py-2"
+              >
+                {category}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
 
         {Object.entries(categories).map(([category, cards]) => (
           <TabsContent key={category} value={category} className="space-y-8">
