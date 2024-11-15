@@ -19,7 +19,7 @@ const Index = () => {
 
       {/* Content Container */}
       <div className="relative flex-grow flex flex-col md:flex-row items-start justify-between p-8 md:p-16">
-        {/* Left Side - Title and Experience Card */}
+        {/* Left Side - Title */}
         <div className="text-cream mb-8 md:mb-0 flex flex-col items-start mt-14">
           <motion.h1 
             className="font-serif text-5xl md:text-7xl mb-6"
@@ -73,7 +73,7 @@ const Index = () => {
 
       {/* Experience Card - Positioned at bottom */}
       <motion.div
-        className="relative w-full max-w-2xl mx-auto mb-16 px-4"
+        className="relative w-full max-w-2xl mx-auto mb-16 px-4 mt-auto"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}

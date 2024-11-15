@@ -11,6 +11,8 @@ import MyEventsCalendar from "./pages/my-events-calendar";
 import HolidayPackages from "./pages/holiday-packages";
 import MyGiftShop from "./pages/my-gift-shop";
 import LathNewsletter from "./pages/lath-newsletter";
+import ProductDetail from "./pages/product-detail";
+import NewsletterDetail from "./pages/newsletter-detail";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/holiday-packages" element={<HolidayPackages />} />
             <Route path="/my-gift-shop" element={<MyGiftShop />} />
             <Route path="/lath-newsletter" element={<LathNewsletter />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/newsletter/:id" element={<NewsletterDetail />} />
           </Routes>
         </Layout>
       </BrowserRouter>
