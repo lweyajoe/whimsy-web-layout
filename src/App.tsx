@@ -13,6 +13,7 @@ import MyGiftShop from "./pages/my-gift-shop";
 import LathNewsletter from "./pages/lath-newsletter";
 import ProductDetail from "./pages/product-detail";
 import NewsletterDetail from "./pages/newsletter-detail";
+import Auth from "./pages/auth";
 
 const queryClient = new QueryClient();
 
@@ -20,11 +21,12 @@ const queryClient = new QueryClient();
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isAuthPage = location.pathname === "/auth";
   
   return (
     <>
-      {!isHomePage && <Header />}
-      <main className={!isHomePage ? "pt-16" : ""}>{children}</main>
+      {!isHomePage && !isAuthPage && <Header />}
+      <main className={!isHomePage && !isAuthPage ? "pt-16" : ""}>{children}</main>
     </>
   );
 };
@@ -46,6 +48,7 @@ const App = () => (
             <Route path="/lath-newsletter" element={<LathNewsletter />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/newsletter/:id" element={<NewsletterDetail />} />
+            <Route path="/auth" element={<Auth />} />
           </Routes>
         </Layout>
       </BrowserRouter>

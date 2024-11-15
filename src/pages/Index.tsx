@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import PartnersCarousel from "@/components/PartnersCarousel";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,11 +20,23 @@ const Index = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative flex-grow flex flex-col md:flex-row items-start justify-between p-8 md:p-16">
-        {/* Left Side - Title */}
-        <div className="text-cream mb-8 md:mb-0 flex flex-col items-start mt-14">
+      <div className="relative flex-grow flex flex-col md:flex-row items-center justify-between p-8 md:p-16">
+        {/* Left Side - Title and Logo */}
+        <div className="text-cream mb-8 md:mb-0 flex flex-col items-center md:items-start">
+          <motion.div
+            className="mb-8"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img
+              src="https://github.com/lweyajoe/whimsy-web-layout/blob/main/public/lath.PNG?raw=true"
+              alt="LATH Logo"
+              className="w-32 h-32 rounded-full border-4 border-cream/20"
+            />
+          </motion.div>
           <motion.h1 
-            className="font-serif text-5xl md:text-7xl mb-6"
+            className="font-serif text-5xl md:text-7xl mb-6 text-center md:text-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -30,7 +44,7 @@ const Index = () => {
             Live Abroad, Think Home
           </motion.h1>
           <motion.p 
-            className="font-sans text-xl md:text-2xl tracking-wide"
+            className="font-sans text-xl md:text-2xl tracking-wide text-center md:text-left"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -41,7 +55,7 @@ const Index = () => {
 
         {/* Right Side - Menu */}
         <motion.div 
-          className="bg-cream/95 p-10 md:p-14 rounded-lg shadow-xl w-full md:w-[600px] h-[85vh] flex flex-col justify-center"
+          className="bg-cream/95 p-10 md:p-14 rounded-lg shadow-xl w-full md:w-[600px] flex flex-col justify-center"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -53,10 +67,11 @@ const Index = () => {
               "My Events Calendar",
               "Holiday Packages",
               "My Gift Shop",
-              "Lath Newsletter"
+              "Lath Newsletter",
+              "Sign in/Sign up (My Dashboard)"
             ].map((item) => (
               <motion.a
-                href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={item === "Sign in/Sign up (My Dashboard)" ? "/auth" : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                 key={item}
                 className="block w-full text-center py-6 px-10 border-2 border-brown/20 rounded-lg
                   font-sans text-2xl md:text-3xl transition-all duration-300 bg-transparent 
@@ -71,35 +86,12 @@ const Index = () => {
         </motion.div>
       </div>
 
-      {/* Experience Card - Positioned at bottom */}
-      <motion.div
-        className="relative w-full max-w-2xl mx-auto mb-16 px-4 mt-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-      >
-        <div className="bg-cream/95 rounded-lg p-8 shadow-xl">
-          <div className="flex flex-col items-center text-brown">
-            <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-brown">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-                alt="Sarah Kamau"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="text-2xl font-serif mb-2">Sarah Kamau</h3>
-            <p className="text-lg italic mb-4">"Finding Home Away From Home"</p>
-            <p className="text-gray-700 leading-relaxed">
-              Moving from Kenya to Adelaide for my masters was a huge step. While the opportunity was exciting, 
-              the distance from family was challenging. LATH has been a game-changer in keeping me connected 
-              with my loved ones back home. Through the app's thoughtful features, I can share my journey and 
-              ensure my presence is felt despite the physical distance. From sending surprise gift cards to 
-              organizing virtual family gatherings, LATH has made my experience in Adelaide feel more like 
-              an extension of home rather than a separation from it.
-            </p>
-          </div>
-        </div>
-      </motion.div>
+      {/* Partners Section */}
+      <div className="relative">
+        <PartnersCarousel />
+      </div>
+
+      <Footer />
     </div>
   );
 };
