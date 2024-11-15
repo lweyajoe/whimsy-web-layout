@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import PartnersCarousel from "@/components/PartnersCarousel";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -84,11 +83,6 @@ const Index = () => {
             ))}
           </nav>
         </motion.div>
-      </div>
-
-      {/* Partners Section */}
-      <div className="relative">
-        <PartnersCarousel />
       </div>
 
       <Footer />
