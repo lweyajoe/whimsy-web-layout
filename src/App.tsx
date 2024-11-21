@@ -19,6 +19,13 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Auth from "./pages/auth";
 
+// Admin Pages
+import AddProduct from "./pages/admin/add-product";
+import AddNewsletter from "./pages/admin/add-newsletter";
+import AddVoucher from "./pages/admin/add-voucher";
+import AddHolidayPackage from "./pages/admin/add-holiday-package";
+import Profile from "./pages/admin/profile";
+
 const queryClient = new QueryClient();
 
 // Wrapper component to conditionally render header
@@ -26,12 +33,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const isAuthPage = location.pathname === "/auth";
+  const isAdminPage = location.pathname.startsWith("/admin");
   
   return (
     <>
-      {!isHomePage && !isAuthPage && <Header />}
-      <main className={!isHomePage && !isAuthPage ? "pt-16" : ""}>{children}</main>
-      <Footer />
+      {!isHomePage && !isAuthPage && !isAdminPage && <Header />}
+      <main className={!isHomePage && !isAuthPage && !isAdminPage ? "pt-16" : ""}>{children}</main>
+      {!isAdminPage && <Footer />}
     </>
   );
 };
@@ -57,6 +65,13 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/auth" element={<Auth />} />
+              
+              {/* Admin Routes */}
+              <Route path="/admin/add-product" element={<AddProduct />} />
+              <Route path="/admin/add-newsletter" element={<AddNewsletter />} />
+              <Route path="/admin/add-voucher" element={<AddVoucher />} />
+              <Route path="/admin/add-holiday-package" element={<AddHolidayPackage />} />
+              <Route path="/admin/profile" element={<Profile />} />
             </Routes>
           </Layout>
         </BrowserRouter>
