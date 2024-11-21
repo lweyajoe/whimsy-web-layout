@@ -43,90 +43,92 @@ const MyEventsCalendar = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <Card className="lg:col-span-1">
-          <CardHeader>
-            <CardTitle>Calendar</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Calendar
-              mode="single"
-              selected={date}
-              onSelect={setDate}
-              className="rounded-md border"
-            />
-          </CardContent>
-        </Card>
+    <div className="min-h-screen flex flex-col">
+      <div className="container mx-auto py-8 flex-grow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card className="lg:col-span-1">
+            <CardHeader>
+              <CardTitle>Calendar</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                className="rounded-md border"
+              />
+            </CardContent>
+          </Card>
 
-        <div className="lg:col-span-2">
-          <Tabs defaultValue="app-events" className="space-y-8">
-            <TabsList>
-              <TabsTrigger value="app-events">LATH Events</TabsTrigger>
-              <TabsTrigger value="my-events">My Events</TabsTrigger>
-            </TabsList>
+          <div className="lg:col-span-2">
+            <Tabs defaultValue="app-events" className="space-y-8">
+              <TabsList>
+                <TabsTrigger value="app-events">LATH Events</TabsTrigger>
+                <TabsTrigger value="my-events">My Events</TabsTrigger>
+              </TabsList>
 
-            <TabsContent value="app-events">
-              <div className="grid gap-6">
-                {appEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>{event.title}</CardTitle>
-                        <CardDescription>
-                          {event.date} at {event.time} • {event.venue}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p>{event.description}</p>
-                        <p className="text-2xl font-bold mt-4">{event.price}</p>
-                      </CardContent>
-                      <CardFooter>
-                        <Button className="w-full bg-brown text-cream hover:bg-brown-light">
-                          Buy Tickets
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
+              <TabsContent value="app-events">
+                <div className="grid gap-6">
+                  {appEvents.map((event, index) => (
+                    <motion.div
+                      key={event.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>{event.title}</CardTitle>
+                          <CardDescription>
+                            {event.date} at {event.time} • {event.venue}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p>{event.description}</p>
+                          <p className="text-2xl font-bold mt-4">{event.price}</p>
+                        </CardContent>
+                        <CardFooter>
+                          <Button className="w-full bg-brown text-cream hover:bg-brown-light">
+                            Buy Tickets
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </TabsContent>
 
-            <TabsContent value="my-events">
-              <div className="space-y-6">
-                <Button className="w-full mb-6">Create New Event</Button>
-                {userEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>{event.title}</CardTitle>
-                        <CardDescription>
-                          {event.date} at {event.time} • {event.venue}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p>{event.description}</p>
-                      </CardContent>
-                      <CardFooter className="flex gap-4">
-                        <Button variant="outline" className="flex-1">Edit</Button>
-                        <Button variant="destructive" className="flex-1">Delete</Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+              <TabsContent value="my-events">
+                <div className="space-y-6">
+                  <Button className="w-full mb-6">Create New Event</Button>
+                  {userEvents.map((event, index) => (
+                    <motion.div
+                      key={event.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>{event.title}</CardTitle>
+                          <CardDescription>
+                            {event.date} at {event.time} • {event.venue}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p>{event.description}</p>
+                        </CardContent>
+                        <CardFooter className="flex gap-4">
+                          <Button variant="outline" className="flex-1">Edit</Button>
+                          <Button variant="destructive" className="flex-1">Delete</Button>
+                        </CardFooter>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
         </div>
       </div>
     </div>

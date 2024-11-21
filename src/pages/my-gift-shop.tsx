@@ -46,85 +46,87 @@ const MyGiftShop = () => {
   );
 
   return (
-    <div className="container mx-auto py-8">
-      <div className="flex flex-wrap gap-4 mb-8">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-          <Input
-            type="search"
-            placeholder="Search products..."
-            className="pl-10"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+    <div className="min-h-screen flex flex-col">
+      <div className="container mx-auto py-8 flex-grow">
+        <div className="flex flex-wrap gap-4 mb-8">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            <Input
+              type="search"
+              placeholder="Search products..."
+              className="pl-10"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <div className="flex gap-2">
+            <Input
+              type="number"
+              placeholder="Min price"
+              className="w-24"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
+            />
+            <Input
+              type="number"
+              placeholder="Max price"
+              className="w-24"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="flex gap-2">
-          <Input
-            type="number"
-            placeholder="Min price"
-            className="w-24"
-            value={minPrice}
-            onChange={(e) => setMinPrice(e.target.value)}
-          />
-          <Input
-            type="number"
-            placeholder="Max price"
-            className="w-24"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(e.target.value)}
-          />
-        </div>
-      </div>
 
-      <Tabs defaultValue="Electronics" className="space-y-8">
-        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
-          <TabsList className="inline-flex h-10 items-center justify-start p-1">
-            {Object.keys(categories).map((category) => (
-              <TabsTrigger
-                key={category}
-                value={category}
-                onClick={() => setActiveCategory(category)}
-                className="px-4 py-2"
-              >
-                {category}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-
-        {Object.entries(categories).map(([category, products]) => (
-          <TabsContent key={category} value={category} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+        <Tabs defaultValue="Electronics" className="space-y-8">
+          <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+            <TabsList className="inline-flex h-10 items-center justify-start p-1">
+              {Object.keys(categories).map((category) => (
+                <TabsTrigger
+                  key={category}
+                  value={category}
+                  onClick={() => setActiveCategory(category)}
+                  className="px-4 py-2"
                 >
-                  <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <CardHeader className="p-0">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-48 object-cover"
-                      />
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="flex justify-between items-center mb-4">
-                        <CardTitle className="text-xl">{product.name}</CardTitle>
-                        <span className="text-lg font-semibold">${product.price}</span>
-                      </div>
-                      <Button className="w-full">Add to Cart</Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                  {category}
+                </TabsTrigger>
               ))}
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
+            </TabsList>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+
+          {Object.entries(categories).map(([category, products]) => (
+            <TabsContent key={category} value={category} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredProducts.map((product, index) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+                      <CardHeader className="p-0">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-48 object-cover"
+                        />
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <CardTitle className="text-xl">{product.name}</CardTitle>
+                          <span className="text-lg font-semibold">${product.price}</span>
+                        </div>
+                        <Button className="w-full">Add to Cart</Button>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
     </div>
   );
 };
