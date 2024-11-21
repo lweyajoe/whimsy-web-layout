@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, User } from "lucide-react";
+import { User } from "lucide-react";
 import { Button } from "./ui/button";
+import { CartDropdown } from "./CartDropdown";
 
 const Header = () => {
   return (
@@ -33,9 +34,7 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
-              <ShoppingCart className="h-5 w-5 text-brown" />
-            </Button>
+            <CartDropdown />
             <Button variant="ghost" size="icon">
               <User className="h-5 w-5 text-brown" />
             </Button>
